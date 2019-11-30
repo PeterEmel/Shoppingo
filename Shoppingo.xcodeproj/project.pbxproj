@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		F0AEBCA4239260070035CBA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA2239260070035CBA2 /* Main.storyboard */; };
 		F0AEBCA62392600C0035CBA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA52392600C0035CBA2 /* Assets.xcassets */; };
 		F0AEBCA92392600C0035CBA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA72392600C0035CBA2 /* LaunchScreen.storyboard */; };
+		F0AEBCB3239271100035CBA2 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */; };
+		F0AEBCB523927EDC0035CBA2 /* RegisterVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F0AEBCA52392600C0035CBA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0AEBCA82392600C0035CBA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0AEBCAA2392600C0035CBA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,6 @@
 				1194F5010FDC894C0D35C370 /* Pods-Shoppingo.debug.xcconfig */,
 				65716486ADD6E4A2530963C2 /* Pods-Shoppingo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +87,7 @@
 				F0AEBCA52392600C0035CBA2 /* Assets.xcassets */,
 				F0AEBCA72392600C0035CBA2 /* LaunchScreen.storyboard */,
 				F0AEBCAA2392600C0035CBA2 /* Info.plist */,
+				F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */,
 			);
 			path = Shoppingo;
 			sourceTree = "<group>";
@@ -93,6 +97,7 @@
 			children = (
 				F0AEBC9E239260070035CBA2 /* AppDelegate.swift */,
 				F0AEBCA0239260070035CBA2 /* ViewController.swift */,
+				F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				F0AEBCA92392600C0035CBA2 /* LaunchScreen.storyboard in Resources */,
 				F0AEBCA62392600C0035CBA2 /* Assets.xcassets in Resources */,
 				F0AEBCA4239260070035CBA2 /* Main.storyboard in Resources */,
+				F0AEBCB3239271100035CBA2 /* GoogleService-Info-3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AEBCA1239260070035CBA2 /* ViewController.swift in Sources */,
+				F0AEBCB523927EDC0035CBA2 /* RegisterVCViewController.swift in Sources */,
 				F0AEBC9F239260070035CBA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

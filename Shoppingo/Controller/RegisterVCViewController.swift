@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterVCViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBAction func registerPressed(_ sender: UIButton) {
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+                print(error!)
+            }else{
+                print("Registeration Successful")
+                self.performSegue(withIdentifier: "goToTableR", sender: self)
+            }
+        }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

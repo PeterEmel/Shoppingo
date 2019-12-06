@@ -8,9 +8,11 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
-    @IBOutlet weak var iceBackground: UIImageView!
+    @IBAction func registerPressed(_ sender: UIButton) {
+    }
     
     @IBAction func LoginPressed(_ sender: UIButton) {
     }

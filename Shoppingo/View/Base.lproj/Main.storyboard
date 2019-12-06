@@ -40,7 +40,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nbl-CK-bfp" kind="show" id="296-lG-OTQ"/>
+                                    <action selector="registerPressed:" destination="58x-1E-ynY" eventType="touchUpInside" id="cL2-de-ouI"/>
+                                    <segue destination="nbl-CK-bfp" kind="show" identifier="goToRegister" id="296-lG-OTQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-Or-rqd">
@@ -53,7 +54,7 @@
                                 </state>
                                 <connections>
                                     <action selector="LoginPressed:" destination="58x-1E-ynY" eventType="touchUpInside" id="qpA-GD-ykI"/>
-                                    <segue destination="cmM-Ql-Aee" kind="show" id="hdl-Rg-eRF"/>
+                                    <segue destination="cmM-Ql-Aee" kind="show" identifier="goToLogin" id="hdl-Rg-eRF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,18 +64,15 @@
                     <navigationItem key="navigationItem" title="Shoppingo" id="c8o-NV-mDb">
                         <barButtonItem key="backBarButtonItem" title="Back" id="SR8-FT-1pT"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="iceBackground" destination="oVR-1q-JLU" id="oHX-D5-kMj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTG-VG-eBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815.2" y="-178.56071964017991"/>
+            <point key="canvasLocation" x="1743" y="-179"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="BcQ-TD-jpJ">
             <objects>
-                <viewController id="cmM-Ql-Aee" sceneMemberID="viewController">
+                <viewController id="cmM-Ql-Aee" customClass="LoginVC" customModule="Shoppingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YeH-cW-ag4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +94,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerPressed:" destination="PZF-ic-kwT" eventType="touchUpInside" id="V81-Id-v8s"/>
+                                            <action selector="loginPressed:" destination="ZvN-gP-joB" eventType="touchUpInside" id="EPq-aJ-RbG"/>
+                                            <segue destination="Rrx-bm-sbS" kind="show" identifier="goToTableL" id="B2s-la-Ljd"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-e5-jUg">
@@ -111,7 +110,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,15 +120,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ATx-C5-qvL"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="i1x-e5-jUg" id="QcQ-9x-VUe"/>
+                        <outlet property="passwordTextField" destination="zaq-Rq-tEX" id="roL-xi-dTi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQV-h1-r8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZvN-gP-joB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2577" y="306"/>
+            <point key="canvasLocation" x="2577" y="186"/>
         </scene>
-        <!--View Controller-->
+        <!--RegisterVC View Controller-->
         <scene sceneID="bST-9v-pJ1">
             <objects>
-                <viewController id="nbl-CK-bfp" sceneMemberID="viewController">
+                <viewController id="nbl-CK-bfp" customClass="RegisterVCViewController" customModule="Shoppingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m8P-VF-LAR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +151,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerPressed:" destination="PZF-ic-kwT" eventType="touchUpInside" id="cMd-MN-SRs"/>
+                                    <action selector="registerPressed:" destination="nbl-CK-bfp" eventType="touchUpInside" id="RlR-kT-3eO"/>
+                                    <segue destination="Rrx-bm-sbS" kind="show" identifier="goToTableR" id="A4t-qx-pKb"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcd-mZ-Np2">
@@ -169,17 +174,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5NR-L0-hjC"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="sMQ-nz-GDO" id="ahr-lI-1c0"/>
+                        <outlet property="passwordTextField" destination="7pw-51-YBr" id="Q6g-Ty-JWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C26-06-2cJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="PZF-ic-kwT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2576.8000000000002" y="-388.15592203898052"/>
+            <point key="canvasLocation" x="2577" y="-540"/>
+        </scene>
+        <!--TableVC-->
+        <scene sceneID="TLM-0v-vBA">
+            <objects>
+                <tableViewController id="Rrx-bm-sbS" customClass="TableVC" customModule="Shoppingo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EBr-Pk-9MC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eVF-RD-oTG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVF-RD-oTG" id="SVC-vh-1AO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rrx-bm-sbS" id="oAd-Td-Zik"/>
+                            <outlet property="delegate" destination="Rrx-bm-sbS" id="BRv-Eh-KVP"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="shoppingTableView" destination="EBr-Pk-9MC" id="gfX-gA-F2f"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjc-vu-nW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3401" y="-205"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2T0-4p-DOh">
@@ -197,7 +236,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxb-iw-5wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="-178.56071964017991"/>
+            <point key="canvasLocation" x="951" y="-179"/>
         </scene>
     </scenes>
     <resources>
@@ -206,4 +245,7 @@
         <image name="Ice Background" width="600" height="400"/>
         <image name="Shoppingo_logo" width="2550" height="859"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="B2s-la-Ljd"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		2C292546C760A15A6D6D3810 /* Pods_Shoppingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259E9B07C375BB3501A04D44 /* Pods_Shoppingo.framework */; };
+		F09C515723997C5D001AC593 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09C515523997C5D001AC593 /* TableViewCell.swift */; };
+		F09C515823997C5D001AC593 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09C515623997C5D001AC593 /* TableViewCell.xib */; };
 		F0AEBC9F239260070035CBA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEBC9E239260070035CBA2 /* AppDelegate.swift */; };
 		F0AEBCA1239260070035CBA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEBCA0239260070035CBA2 /* ViewController.swift */; };
 		F0AEBCA4239260070035CBA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA2239260070035CBA2 /* Main.storyboard */; };
 		F0AEBCA62392600C0035CBA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA52392600C0035CBA2 /* Assets.xcassets */; };
 		F0AEBCA92392600C0035CBA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCA72392600C0035CBA2 /* LaunchScreen.storyboard */; };
-		F0AEBCB3239271100035CBA2 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */; };
 		F0AEBCB523927EDC0035CBA2 /* RegisterVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */; };
+		F0DA2F8723967621007D99FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0DA2F8623967620007D99FA /* GoogleService-Info.plist */; };
+		F0DA2F8923968785007D99FA /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA2F8823968785007D99FA /* TableVC.swift */; };
+		F0DA2F8B23968C39007D99FA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA2F8A23968C39007D99FA /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1194F5010FDC894C0D35C370 /* Pods-Shoppingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppingo.debug.xcconfig"; path = "Target Support Files/Pods-Shoppingo/Pods-Shoppingo.debug.xcconfig"; sourceTree = "<group>"; };
 		259E9B07C375BB3501A04D44 /* Pods_Shoppingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65716486ADD6E4A2530963C2 /* Pods-Shoppingo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppingo.release.xcconfig"; path = "Target Support Files/Pods-Shoppingo/Pods-Shoppingo.release.xcconfig"; sourceTree = "<group>"; };
+		F09C515523997C5D001AC593 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F09C515623997C5D001AC593 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F0AEBC9B239260070035CBA2 /* Shoppingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AEBC9E239260070035CBA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0AEBCA0239260070035CBA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,8 +34,10 @@
 		F0AEBCA52392600C0035CBA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0AEBCA82392600C0035CBA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0AEBCAA2392600C0035CBA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCViewController.swift; sourceTree = "<group>"; };
+		F0DA2F8623967620007D99FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F0DA2F8823968785007D99FA /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
+		F0DA2F8A23968C39007D99FA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F09C515423997965001AC593 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F09C515523997C5D001AC593 /* TableViewCell.swift */,
+				F09C515623997C5D001AC593 /* TableViewCell.xib */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
 		F0AEBC92239260070035CBA2 = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +104,7 @@
 				F0AEBCA52392600C0035CBA2 /* Assets.xcassets */,
 				F0AEBCA72392600C0035CBA2 /* LaunchScreen.storyboard */,
 				F0AEBCAA2392600C0035CBA2 /* Info.plist */,
-				F0AEBCB2239271100035CBA2 /* GoogleService-Info-3.plist */,
+				F0DA2F8623967620007D99FA /* GoogleService-Info.plist */,
 			);
 			path = Shoppingo;
 			sourceTree = "<group>";
@@ -98,6 +115,8 @@
 				F0AEBC9E239260070035CBA2 /* AppDelegate.swift */,
 				F0AEBCA0239260070035CBA2 /* ViewController.swift */,
 				F0AEBCB423927EDC0035CBA2 /* RegisterVCViewController.swift */,
+				F0DA2F8A23968C39007D99FA /* LoginVC.swift */,
+				F0DA2F8823968785007D99FA /* TableVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				F0AEBCA2239260070035CBA2 /* Main.storyboard */,
+				F09C515423997965001AC593 /* Custom Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,9 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AEBCA92392600C0035CBA2 /* LaunchScreen.storyboard in Resources */,
+				F09C515823997C5D001AC593 /* TableViewCell.xib in Resources */,
+				F0DA2F8723967621007D99FA /* GoogleService-Info.plist in Resources */,
 				F0AEBCA62392600C0035CBA2 /* Assets.xcassets in Resources */,
 				F0AEBCA4239260070035CBA2 /* Main.storyboard in Resources */,
-				F0AEBCB3239271100035CBA2 /* GoogleService-Info-3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,8 +248,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AEBCA1239260070035CBA2 /* ViewController.swift in Sources */,
+				F0DA2F8923968785007D99FA /* TableVC.swift in Sources */,
 				F0AEBCB523927EDC0035CBA2 /* RegisterVCViewController.swift in Sources */,
+				F09C515723997C5D001AC593 /* TableViewCell.swift in Sources */,
 				F0AEBC9F239260070035CBA2 /* AppDelegate.swift in Sources */,
+				F0DA2F8B23968C39007D99FA /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -360,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

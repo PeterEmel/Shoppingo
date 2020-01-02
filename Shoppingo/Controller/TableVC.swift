@@ -8,54 +8,83 @@
 
 import UIKit
 import Firebase
+import SDWebImage
+import SVProgressHUD
 
-struct CellData {
-    let image : UIImage?
-    let title : String?
-}
 
 class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var data = [CellData]()
+    //Outlets
+    @IBOutlet var shoppingTableview: UITableView!
     
-    @IBOutlet var shoppingTableView: UITableView!
+    //Variables
+    private var itemsArray = [Items]()
+    private var itemsCollectionRef : CollectionReference!
+    private var itemsListener : ListenerRegistration!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationItem .setHidesBackButton(true, animated: false)
         
-        shoppingTableView.delegate = self
-        shoppingTableView.dataSource = self
+        shoppingTableview.delegate = self
+        shoppingTableview.dataSource = self
         
         
-        shoppingTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableViewCell")
+        shoppingTableview.rowHeight = UITableView.automaticDimension
+        shoppingTableview.estimatedRowHeight = 160.0
         
-        configureTableView()
+        itemsCollectionRef = Firestore.firestore().collection(ITEMS_REF)
         
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        SVProgressHUD.show(withStatus: "Loading..")
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return itemsArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
-        
-        let titlesArray = ["First", "Second"]
-        let pricesArray = ["10000", "20000"]
-        
-        cell.titleLabel.text = titlesArray[indexPath.row]
-        cell.priceLabel.text = pricesArray[indexPath.row]
-        
-        
-        return cell
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemCell {
+            
+            cell.configureCell(items: itemsArray[indexPath.row])
+            
+            return cell
+        }else{
+            return UITableViewCell()
+        }
     }
+
     
-    
-    func configureTableView(){
-        shoppingTableView.rowHeight = UITableView.automaticDimension
-        shoppingTableView.estimatedRowHeight = 500.0
+    func setListener() {
+        itemsListener = itemsCollectionRef.addSnapshotListener { (snapshot, error) in
+            if let err = error {
+                debugPrint("Error fetching docs: \(err)")
+            }else{
+                for document in (snapshot?.documents)!{
+                    print(document.data())
+                    }
+                }
+                self.itemsArray.removeAll()
+                self.itemsArray = Items.parsData(snapshot: snapshot)
+                self.shoppingTableview.reloadData()
+            }
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setListener()
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        itemsListener.remove()
+        update()
+    }
+    @objc func update() {
+        SVProgressHUD.dismiss()
     }
 }

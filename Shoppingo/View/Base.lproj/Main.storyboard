@@ -198,13 +198,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eVF-RD-oTG">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="160" id="eVF-RD-oTG" customClass="ItemCell" customModule="Shoppingo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVF-RD-oTG" id="SVC-vh-1AO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IF8-j9-4pl">
+                                            <rect key="frame" x="20" y="15" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="128" id="JWg-m8-72R"/>
+                                                <constraint firstAttribute="height" constant="128" id="Qh9-Ps-Vm2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVg-BQ-tCV">
+                                            <rect key="frame" x="158" y="15" width="207" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="207" id="4kZ-EM-7gQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mE-mV-jQs">
+                                            <rect key="frame" x="152" y="108" width="207" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="85h-wT-0wH"/>
+                                                <constraint firstAttribute="width" constant="207" id="w5B-m7-O8E"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IF8-j9-4pl" firstAttribute="leading" secondItem="SVC-vh-1AO" secondAttribute="leadingMargin" constant="4" id="1GA-QO-lfv"/>
+                                        <constraint firstItem="4mE-mV-jQs" firstAttribute="leading" secondItem="IF8-j9-4pl" secondAttribute="trailing" constant="4" id="GVy-qJ-uTW"/>
+                                        <constraint firstAttribute="trailing" secondItem="dVg-BQ-tCV" secondAttribute="trailing" constant="10" id="M7U-K6-77q"/>
+                                        <constraint firstItem="dVg-BQ-tCV" firstAttribute="leading" secondItem="IF8-j9-4pl" secondAttribute="trailing" constant="10" id="QZK-D1-FuQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4mE-mV-jQs" secondAttribute="bottom" constant="6" id="Y1a-p7-Vge"/>
+                                        <constraint firstItem="dVg-BQ-tCV" firstAttribute="top" secondItem="SVC-vh-1AO" secondAttribute="top" constant="15" id="Zei-KM-mqe"/>
+                                        <constraint firstItem="IF8-j9-4pl" firstAttribute="top" secondItem="SVC-vh-1AO" secondAttribute="topMargin" constant="4" id="gfG-P1-chY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IF8-j9-4pl" secondAttribute="bottom" constant="6" id="wn1-88-OYG"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemImage" destination="IF8-j9-4pl" id="CYN-Qh-q6k"/>
+                                    <outlet property="priceLbl" destination="4mE-mV-jQs" id="67e-DE-wQf"/>
+                                    <outlet property="titleLbl" destination="dVg-BQ-tCV" id="waV-Yj-nLN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -213,12 +256,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="shoppingTableView" destination="EBr-Pk-9MC" id="gfX-gA-F2f"/>
+                        <outlet property="shoppingTableview" destination="EBr-Pk-9MC" id="Yjc-9W-tLz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjc-vu-nW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="-205"/>
+            <point key="canvasLocation" x="3400.8000000000002" y="-205.54722638680661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2T0-4p-DOh">

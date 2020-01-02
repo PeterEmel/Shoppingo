@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2C292546C760A15A6D6D3810 /* Pods_Shoppingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259E9B07C375BB3501A04D44 /* Pods_Shoppingo.framework */; };
+		F02D19A523B614A7006EBBF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D19A423B614A7006EBBF7 /* Constants.swift */; };
+		F093E36523B4C11700A8415F /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093E36423B4C11700A8415F /* ItemsModel.swift */; };
+		F093E36723B4C3CE00A8415F /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093E36623B4C3CE00A8415F /* ItemCell.swift */; };
 		F09C515723997C5D001AC593 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09C515523997C5D001AC593 /* TableViewCell.swift */; };
 		F09C515823997C5D001AC593 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F09C515623997C5D001AC593 /* TableViewCell.xib */; };
 		F0AEBC9F239260070035CBA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEBC9E239260070035CBA2 /* AppDelegate.swift */; };
@@ -25,6 +28,9 @@
 		1194F5010FDC894C0D35C370 /* Pods-Shoppingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppingo.debug.xcconfig"; path = "Target Support Files/Pods-Shoppingo/Pods-Shoppingo.debug.xcconfig"; sourceTree = "<group>"; };
 		259E9B07C375BB3501A04D44 /* Pods_Shoppingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65716486ADD6E4A2530963C2 /* Pods-Shoppingo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoppingo.release.xcconfig"; path = "Target Support Files/Pods-Shoppingo/Pods-Shoppingo.release.xcconfig"; sourceTree = "<group>"; };
+		F02D19A423B614A7006EBBF7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F093E36423B4C11700A8415F /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
+		F093E36623B4C3CE00A8415F /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		F09C515523997C5D001AC593 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F09C515623997C5D001AC593 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F0AEBC9B239260070035CBA2 /* Shoppingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F093E36323B4C0E000A8415F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F093E36423B4C11700A8415F /* ItemsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F09C515423997965001AC593 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +113,14 @@
 		F0AEBC9D239260070035CBA2 /* Shoppingo */ = {
 			isa = PBXGroup;
 			children = (
+				F093E36323B4C0E000A8415F /* Model */,
 				F0AEBCB0239260290035CBA2 /* Controller */,
 				F0AEBCB12392603F0035CBA2 /* View */,
 				F0AEBCA52392600C0035CBA2 /* Assets.xcassets */,
 				F0AEBCA72392600C0035CBA2 /* LaunchScreen.storyboard */,
 				F0AEBCAA2392600C0035CBA2 /* Info.plist */,
 				F0DA2F8623967620007D99FA /* GoogleService-Info.plist */,
+				F02D19A423B614A7006EBBF7 /* Constants.swift */,
 			);
 			path = Shoppingo;
 			sourceTree = "<group>";
@@ -125,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				F0AEBCA2239260070035CBA2 /* Main.storyboard */,
+				F093E36623B4C3CE00A8415F /* ItemCell.swift */,
 				F09C515423997965001AC593 /* Custom Cell */,
 			);
 			path = View;
@@ -247,12 +264,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F093E36723B4C3CE00A8415F /* ItemCell.swift in Sources */,
 				F0AEBCA1239260070035CBA2 /* ViewController.swift in Sources */,
 				F0DA2F8923968785007D99FA /* TableVC.swift in Sources */,
 				F0AEBCB523927EDC0035CBA2 /* RegisterVCViewController.swift in Sources */,
+				F093E36523B4C11700A8415F /* ItemsModel.swift in Sources */,
 				F09C515723997C5D001AC593 /* TableViewCell.swift in Sources */,
 				F0AEBC9F239260070035CBA2 /* AppDelegate.swift in Sources */,
 				F0DA2F8B23968C39007D99FA /* LoginVC.swift in Sources */,
+				F02D19A523B614A7006EBBF7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +356,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -390,6 +411,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

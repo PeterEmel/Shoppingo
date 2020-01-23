@@ -18,11 +18,21 @@ class LoginVC: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, link: passwordTextField.text!) { (user, error) in
             if error != nil {
                 print("error!")
+                
+//                Auth.auth().ReauthenticateAndRetrieveData(with: credential: FIRAUTHCredential) { (result, error) in
+//                    if error == nil  {
+//                        self.userDefault.set(true, forKey: "userSignedIn")
+//                        self.userDefault.synchronize()
+//                        print(result.user.email)
+//                    }
+//                }
+                
             }else{
                 print("Login Successful")
                 self.performSegue(withIdentifier: "goToTableL", sender: self)
             }
         }
+
     }
     
     override func viewDidLoad() {

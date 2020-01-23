@@ -9,6 +9,8 @@ target 'Shoppingo' do
   # Pods for Shoppingo
 
 pod 'SVProgressHUD'
+pod 'Alamofire'
+pod 'AlamofireImage'
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
@@ -16,5 +18,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 4.1'
 pod 'Firebase/Firestore'
+pod 'ImageSlideshow', '~> 1.8.1'
+pod 'ATGMediaBrowser'
 
 end

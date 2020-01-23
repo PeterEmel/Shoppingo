@@ -16,12 +16,15 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Outlets
     @IBOutlet var shoppingTableview: UITableView!
+
     
     //Variables
-    private var itemsArray = [Items]()
+    private(set) var itemsArray = [Items]()
+    private(set) var tempItemsArray = [Items]()
     private var itemsCollectionRef : CollectionReference!
     private var itemsListener : ListenerRegistration!
-
+    //var yourObject : String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,7 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         shoppingTableview.estimatedRowHeight = 160.0
         
         itemsCollectionRef = Firestore.firestore().collection(ITEMS_REF)
-        
+                
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -73,18 +76,72 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.itemsArray.removeAll()
                 self.itemsArray = Items.parsData(snapshot: snapshot)
                 self.shoppingTableview.reloadData()
+                self.update()
+                print("TRY THIS")
             }
-        
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //let selectedItem = itemsArray[indexPath.row]
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil)
+        let Dvc = vc.instantiateViewController(withIdentifier: "DetailsVC") as? DetailsVC
+        //Dvc?.getDescription = ItemCell.descArray[indexPath.row]
+        Dvc?.getDescription = itemsArray[indexPath.row].description
+        Dvc?.getUrl = itemsArray[indexPath.row].url
+        Dvc?.getUrl2 = itemsArray[indexPath.row].url2
+        
+        self.navigationController?.pushViewController(Dvc!, animated: true)
+
+       // performSegue(withIdentifier: "detailsVC", sender: nil)
+    }
+
+    
     override func viewWillAppear(_ animated: Bool) {
         setListener()
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         itemsListener.remove()
-        update()
+        //update()
     }
     @objc func update() {
         SVProgressHUD.dismiss()
+    }
+    @IBAction func unwindToTableVC(segue: UIStoryboardSegue){}
+    
+}
+extension TableVC : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Console hjfghj")
+        guard let searchText = searchBar.text else{return}
+        let titlesRef = Firestore.firestore().collection(ITEMS_REF)
+        titlesRef.whereField("title", isGreaterThanOrEqualTo: searchText).whereField("title", isLessThanOrEqualTo: searchText+"z").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error Getting Doceument: \(err)")
+            }else{
+                for document in querySnapshot!.documents{
+                    print("Documentd Data: \(document.data())")
+                    self.tempItemsArray = self.itemsArray
+                    self.itemsArray.removeAll()
+                    self.itemsArray = Items.parsData(snapshot: querySnapshot)
+                    self.shoppingTableview.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            
+            itemsArray = tempItemsArray
+            shoppingTableview.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
     }
 }

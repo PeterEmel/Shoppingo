@@ -8,9 +8,16 @@
 
 import Foundation
 
-    let ITEMS_REF = "ShoppingItems"
-    let TITLE = "title"
-    let PRICE = "price"
-    let DESCRIPTION = "description"
-    let URL = "url"
+let ITEMS_REF = "ShoppingItems"
+let TITLE = "title"
+let PRICE = "price"
+let DESCRIPTION = "description"
+let URL = "url"
+let URL2 = "url2"
+
+let BUYERS_REF = "BuyersInfo"
+let FIRST_NAME = "firstName"
+let LAST_NAME = "lastName"
+let ADRESS = "adress"
+let MOBILE_NUM = "mobileNum"
 

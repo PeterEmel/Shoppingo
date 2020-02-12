@@ -15,9 +15,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, link: passwordTextField.text!) { (user, error) in
-            if error != nil {
-                print("error!")
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if user != nil {
+                print("Login Successful")
+                self.performSegue(withIdentifier: "goToTableL", sender: self)
+                
                 
 //                Auth.auth().ReauthenticateAndRetrieveData(with: credential: FIRAUTHCredential) { (result, error) in
 //                    if error == nil  {
@@ -28,8 +30,11 @@ class LoginVC: UIViewController {
 //                }
                 
             }else{
-                print("Login Successful")
-                self.performSegue(withIdentifier: "goToTableL", sender: self)
+                print("error!")
+                let alert = UIAlertController(title: "Error logging in", message: "Email or Password may be incorrect", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
         }
 
@@ -38,9 +43,11 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
     /*
     // MARK: - Navigation

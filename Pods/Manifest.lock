@@ -159,9 +159,6 @@ PODS:
     - abseil/base/config
     - abseil/meta/type_traits
   - Alamofire (4.9.1)
-  - AlamofireImage (3.6.0):
-    - Alamofire (~> 4.9)
-  - ATGMediaBrowser (1.2.0)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -294,15 +291,16 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - SDWebImage (4.4.7):
-    - SDWebImage/Core (= 4.4.7)
-  - SDWebImage/Core (4.4.7)
+  - Realm (4.3.1):
+    - Realm/Headers (= 4.3.1)
+  - Realm/Headers (4.3.1)
+  - RealmSwift (4.3.1):
+    - Realm (= 4.3.1)
   - SVProgressHUD (2.2.5)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireImage
-  - ATGMediaBrowser
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -310,15 +308,14 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - ImageSlideshow (~> 1.8.1)
-  - SDWebImage (~> 4.1)
+  - RealmSwift
   - SVProgressHUD
+  - SwipeCellKit
 
 SPEC REPOS:
   trunk:
     - abseil
     - Alamofire
-    - AlamofireImage
-    - ATGMediaBrowser
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -341,14 +338,14 @@ SPEC REPOS:
     - ImageSlideshow
     - leveldb-library
     - nanopb
-    - SDWebImage
+    - Realm
+    - RealmSwift
     - SVProgressHUD
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
-  ATGMediaBrowser: e144b78f5c4d4c21ced30f5765731685f7af95c1
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
@@ -371,9 +368,11 @@ SPEC CHECKSUMS:
   ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
+  Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
+  RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 2527c4cce41d31bf8e6d2650c48ad63147e91a70
+PODFILE CHECKSUM: 570deb220f5604b138bc6382a78784eb456cb33d
 
 COCOAPODS: 1.8.4

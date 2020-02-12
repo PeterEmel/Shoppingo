@@ -21,3 +21,5 @@ let LAST_NAME = "lastName"
 let ADRESS = "adress"
 let MOBILE_NUM = "mobileNum"
 
+let NOTIF = Notification.Name("notifDataChanged")
+

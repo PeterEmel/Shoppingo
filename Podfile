@@ -10,15 +10,14 @@ target 'Shoppingo' do
 
 pod 'SVProgressHUD'
 pod 'Alamofire'
-pod 'AlamofireImage'
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
-pod 'SDWebImage', '~> 4.1'
 pod 'Firebase/Firestore'
 pod 'ImageSlideshow', '~> 1.8.1'
-pod 'ATGMediaBrowser'
+pod 'RealmSwift'
+pod 'SwipeCellKit'
 
 end

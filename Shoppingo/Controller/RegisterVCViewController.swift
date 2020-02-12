@@ -11,10 +11,12 @@ import Firebase
 
 class RegisterVCViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func registerPressed(_ sender: UIButton) {
+        let username = usernameTextField.text
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
                 print(error!)
@@ -29,7 +31,9 @@ class RegisterVCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     

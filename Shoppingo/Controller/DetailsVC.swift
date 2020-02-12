@@ -9,20 +9,19 @@
 import UIKit
 import Alamofire
 import ImageSlideshow
-import ATGMediaBrowser
-
 
 class DetailsVC: UIViewController {
     
-    
     //Variables
     private var detItems : Items!
-    //private var itemCell : ItemCell!
     private var imgArray = [UIImage]()
     var getDescription : String!
-    var getUrl : String!
-    var getUrl2 : String!
-  
+    var getProductImage : UIImage!
+    var getImage2 : UIImage!
+    
+    //var isAddedToCart = false
+    let cartObj = CartVC()
+    
     
     //Outlets
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -36,6 +35,7 @@ class DetailsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
         configureDetails()
         scrollViewImages()
     
@@ -59,25 +59,15 @@ class DetailsVC: UIViewController {
     }
     
     func configureDetails() {
-        requestImages(url: getUrl)
-        requestImages(url: getUrl2)
+        imgArray.append(getProductImage)
+        imgArray.append(getImage2)
         descriptionLbl.text = getDescription
-    }
-    
-    func requestImages(url:String){
-        if let url = Foundation.URL(string: url){
-            do{
-                let data = try Data(contentsOf: url)
-                let img = UIImage(data: data)
-                imgArray.append(img!)
-            }catch let err{
-                print("Error: \(err.localizedDescription)")
-            }
-        }
     }
     
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
+        cartObj.addedToCart()
+        //NotificationCenter.default.post(name: NOTIF, object: nil)
         let alert = UIAlertController.init(title: "", message: "Proceed to checkout or continue shopping", preferredStyle: .alert)
         let checkoutAction = UIAlertAction.init(title: "Checkout", style: .default) { (action1) in
             self.performSegue(withIdentifier: "goToCart", sender: self)

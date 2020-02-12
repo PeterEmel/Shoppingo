@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SDWebImage
 import SVProgressHUD
 
 
@@ -21,14 +20,13 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Variables
     private(set) var itemsArray = [Items]()
     private(set) var tempItemsArray = [Items]()
+    static var staticobj : Items!
     private var itemsCollectionRef : CollectionReference!
     private var itemsListener : ListenerRegistration!
-    //var yourObject : String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         shoppingTableview.delegate = self
         shoppingTableview.dataSource = self
@@ -42,6 +40,7 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     }
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
         SVProgressHUD.show(withStatus: "Loading..")
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
@@ -77,23 +76,28 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.itemsArray = Items.parsData(snapshot: snapshot)
                 self.shoppingTableview.reloadData()
                 self.update()
-                print("TRY THIS")
             }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let selectedItem = itemsArray[indexPath.row]
         
         let vc = UIStoryboard(name: "Main", bundle: nil)
         let Dvc = vc.instantiateViewController(withIdentifier: "DetailsVC") as? DetailsVC
         //Dvc?.getDescription = ItemCell.descArray[indexPath.row]
         Dvc?.getDescription = itemsArray[indexPath.row].description
-        Dvc?.getUrl = itemsArray[indexPath.row].url
-        Dvc?.getUrl2 = itemsArray[indexPath.row].url2
+        Dvc?.getProductImage = itemsArray[indexPath.row].productImage
+        Dvc?.getImage2 = itemsArray[indexPath.row].image2
+        
+        TableVC.staticobj = itemsArray[indexPath.row]
         
         self.navigationController?.pushViewController(Dvc!, animated: true)
 
        // performSegue(withIdentifier: "detailsVC", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ""{
+            
+        }
     }
 
     
@@ -114,7 +118,7 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 extension TableVC : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Console hjfghj")
+        print("print hjfghj")
         guard let searchText = searchBar.text else{return}
         let titlesRef = Firestore.firestore().collection(ITEMS_REF)
         titlesRef.whereField("title", isGreaterThanOrEqualTo: searchText).whereField("title", isLessThanOrEqualTo: searchText+"z").getDocuments { (querySnapshot, err) in

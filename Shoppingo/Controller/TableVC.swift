@@ -25,6 +25,7 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var itemsListener : ListenerRegistration!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +41,6 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
         SVProgressHUD.show(withStatus: "Loading..")
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
@@ -90,6 +90,8 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         TableVC.staticobj = itemsArray[indexPath.row]
         
+        
+        
         self.navigationController?.pushViewController(Dvc!, animated: true)
 
        // performSegue(withIdentifier: "detailsVC", sender: nil)
@@ -102,6 +104,13 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     override func viewWillAppear(_ animated: Bool) {
+        //self.navigationItem.setHidesBackButton(true, animated: true)
+        //self.navigationItem.leftBarButtonItem = nil
+        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationItem.leftBarButtonItem?.isEnabled = false
+//        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Signout", style: .plain, target: self, action: #selector(TableVC.signout))
+        
         setListener()
         
     }
@@ -114,11 +123,19 @@ class TableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     @IBAction func unwindToTableVC(segue: UIStoryboardSegue){}
     
+        @objc func signout() {
+            do {
+                try Auth.auth().signOut()
+                self.navigationController?.popViewController(animated: true)
+            }catch{
+                print("Error SigningOut")
+            }
+        }
+    
 }
 extension TableVC : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("print hjfghj")
         guard let searchText = searchBar.text else{return}
         let titlesRef = Firestore.firestore().collection(ITEMS_REF)
         titlesRef.whereField("title", isGreaterThanOrEqualTo: searchText).whereField("title", isLessThanOrEqualTo: searchText+"z").getDocuments { (querySnapshot, err) in

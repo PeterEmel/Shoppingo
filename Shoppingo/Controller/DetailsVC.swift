@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import ImageSlideshow
+import Firebase
 
 class DetailsVC: UIViewController {
     
@@ -21,6 +21,13 @@ class DetailsVC: UIViewController {
     
     //var isAddedToCart = false
     let cartObj = CartVC()
+    
+    var ref : DatabaseReference!
+    let userID = Auth.auth().currentUser?.uid
+    
+    var titlee : String = ""
+    var productImageURL : String = ""
+    var price : Float = 0
     
     
     //Outlets
@@ -67,6 +74,8 @@ class DetailsVC: UIViewController {
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
         cartObj.addedToCart()
+        //saveProductsToUser()
+        
         //NotificationCenter.default.post(name: NOTIF, object: nil)
         let alert = UIAlertController.init(title: "", message: "Proceed to checkout or continue shopping", preferredStyle: .alert)
         let checkoutAction = UIAlertAction.init(title: "Checkout", style: .default) { (action1) in
@@ -82,7 +91,15 @@ class DetailsVC: UIViewController {
         present(alert,animated: true)
     }
     
-
+//    func saveProductsToUser() {
+//        titlee = TableVC.staticobj.title
+//        productImageURL = TableVC.staticobj.url
+//        price = TableVC.staticobj.price
+//        
+//        let productData = ["title":titlee, "url":productImageURL, "price":price] as [String : Any]
+//        self.ref.child("users").child(userID!).child("product").setValue(productData)
+//        
+//    }
     
 }
 

@@ -16,6 +16,7 @@ class CartVC: UITableViewController {
     var selectdItem : Items!
     var realm = try! Realm()
     var cartItems : Results<Cart>?
+    var cartItemsArray : [String]?
     
     var getImage : UIImage!
     var getTitle : String!
@@ -30,18 +31,18 @@ class CartVC: UITableViewController {
         //print("Trial2: \(TableVC.staticobj.title!)")
         load()
         
-        NotificationCenter.default.addObserver(self, selector:#selector(self.cartDataChanged(_:)), name: NOTIF, object: nil)
+//        NotificationCenter.default.addObserver(self, selector:#selector(self.cartDataChanged(_:)), name: NOTIF, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    @objc func cartDataChanged(_ notif:Notification) {
-        print("Entered")
-        save(cartItem: changeItemsTOCart(item: TableVC.staticobj))
-        tableView.reloadData()
-        print(cartItems)
-    }
+//    @objc func cartDataChanged(_ notif:Notification) {
+//        print("Entered")
+//        save(cartItem: changeItemsTOCart(item: TableVC.staticobj))
+//        tableView.reloadData()
+//        print(cartItems)
+//    }
     func addedToCart() {
         var isInCart = false
         if cartItems != nil {
